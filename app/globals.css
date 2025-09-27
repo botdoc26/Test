@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animations are provided via the `tailwindcss-animate` plugin configured in tailwind.config.ts */
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Зеленая / Черная / Белая палитра — значения находятся в формате для использования через hsl(var(--...)) */
+  --background: 0 0% 100%;           /* белый */
+  --foreground: 0 0% 6%;             /* почти чёрный */
+  --card: 0 0% 98%;                  /* слегка иной белый */
+  --card-foreground: 0 0% 6%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 6%;
+  --primary: 140 55% 34%;            /* основной зелёный */
+  --primary-foreground: 0 0% 100%;   /* белый текст на зелёном */
+  --secondary: 140 35% 48%;          /* вторичный зелёный */
+  --secondary-foreground: 0 0% 6%;
+  --muted: 120 10% 92%;              /* мягкий светло-зелёный/серый для фона элементов */
+  --muted-foreground: 0 0% 20%;      /* тёмно-серый */
+  --accent: 140 60% 26%;             /* яркий акцентный зелёный */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 65% 45%;          /* красный для ошибок/удаления */
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 88%;
+  --input: 0 0% 96%;
+  --ring: 140 65% 40%;
+  --chart-1: 140 55% 34%;
+  --chart-2: 140 45% 40%;
+  --chart-3: 140 30% 52%;
+  --chart-4: 140 20% 30%;
+  --chart-5: 140 15% 64%;
+  --radius: 0.75rem;
+  --sidebar: 0 0% 100%;
+  --sidebar-foreground: 0 0% 6%;
+  --sidebar-primary: 140 55% 34%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 140 35% 48%;
+  --sidebar-accent-foreground: 0 0% 6%;
+  --sidebar-border: 0 0% 88%;
+  --sidebar-ring: 140 65% 40%;
+}
+
+.dark {
+  /* Тёмная тема: чёрный фон с зелёными акцентами */
+  --background: 0 0% 6%;            /* почти чёрный */
+  --foreground: 0 0% 98%;           /* почти белый */
+  --card: 0 0% 8%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 8%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 140 60% 45%;           /* светлый зелёный на чёрном */
+  --primary-foreground: 0 0% 6%;
+  --secondary: 140 40% 48%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 120 8% 12%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 140 65% 32%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 65% 45%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 18%;
+  --input: 0 0% 12%;
+  --ring: 140 70% 44%;
+  --chart-1: 140 60% 45%;
+  --chart-2: 140 50% 40%;
+  --chart-3: 140 35% 50%;
+  --chart-4: 140 25% 30%;
+  --chart-5: 140 20% 64%;
+  --sidebar: 0 0% 8%;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-primary: 140 60% 45%;
+  --sidebar-primary-foreground: 0 0% 6%;
+  --sidebar-accent: 140 40% 48%;
+  --sidebar-accent-foreground: 0 0% 98%;
+  --sidebar-border: 0 0% 18%;
+  --sidebar-ring: 140 70% 44%;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Put any base layer customizations after the `@tailwind base` directive */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Добавление кастомных стилей для аниме-портала */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-md bg-card/80 border border-border/50;
+  }
+}
